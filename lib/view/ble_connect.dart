@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
+import 'package:fluttet_hm10/view/tab_view.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+import '../utils/bluetooth_singleton.dart';
 import 'home.dart'; // Ekledik
 
 class BleConnnectPage extends StatefulWidget {
@@ -55,6 +57,7 @@ class _BleConnnectPageState extends State<BleConnnectPage> {
   Future<void> connectToDevice(BluetoothDevice device) async {
     try {
       await device.connect();
+      BluetoothManager().selectedDevice = device; // Singleton sınıfı kullanarak ayarla
       setState(() {
         selectedDevice = device;
       });
@@ -69,7 +72,7 @@ class _BleConnnectPageState extends State<BleConnnectPage> {
       );
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) => Home(connectedDevice: device),
+          builder: (context) => MyTabs(),
         ),
       );
     } catch (e) {
@@ -108,7 +111,7 @@ class _BleConnnectPageState extends State<BleConnnectPage> {
               BluetoothDevice device = scanResultList[index].device;
 
               // Cihaz adı "cv" ile başlıyorsa göster
-              if (device.name != null && device.name.startsWith("BT")) {
+              if (device.name != null && device.name.startsWith("CW")) {
                 return ListTile(
                   onTap: () {
                     connectToDevice(device);
@@ -122,7 +125,7 @@ class _BleConnnectPageState extends State<BleConnnectPage> {
               }
             },
             separatorBuilder: (BuildContext context, int index) {
-              return Divider();
+              return SizedBox();
             },
           )
 
@@ -134,3 +137,4 @@ class _BleConnnectPageState extends State<BleConnnectPage> {
     );
   }
 }
+

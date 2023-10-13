@@ -1,3 +1,4 @@
+/*
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -201,75 +202,51 @@ class _HomeState extends State<Home> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 80),
 
-            Stack(
-              children: [
-                // Arka plan resmi
-                Positioned.fill(
-                  child: Image.asset(
-                    'assets/status.png',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                // Diğer widgetlarınızı ekleyin
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24.0),
-                  child: SizedBox(
-                    height: MediaQuery.of(context).size.height / 5,
-                    width: MediaQuery.of(context).size.width / 1.06,
-                    child: Card(
-                      color: Colors.transparent, // Card'ın arka plan rengini şeffaf yapın
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+            SizedBox(height: 80),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.0),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height / 5,
+                width: MediaQuery.of(context).size.width / 1.06,
+                child: Card(
+                  color: myColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
                         children: [
-                          Card(
-                            color: Colors.transparent,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Row(
-                                  children: [
-                                    SizedBox(width: 60),
-                                    Icon(Icons.info_outline, color: Colors.grey),
-                                    SizedBox(width: 8, height: 40),
-                                    Expanded(
-                                      child: Text(
-                                        '${parsedDataList.isNotEmpty ? (parsedDataList[0] == 5 ? 'Başlat Komutu Bekleniyor' : (parsedDataList[0] == 9 ? 'Şarja Hazır' : (parsedDataList[0] == 6 ? 'Araç Şarj Oluyor' : 'Soket Bağlı Değil'))) : 'Veri Yok'}',
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white,
-                                        ),
-                                        overflow: TextOverflow.ellipsis,
-                                        maxLines: 2,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 8), // İki metin arasında boşluk ekleyin
-                                Text(
-                                  parsedDataList.isNotEmpty && parsedDataList[0] == 12 && parsedDataList[0] != 6 && parsedDataList[0] != 9 && parsedDataList[0] != 5
-                                      ? 'Lütfen Soketi Bağlayınız'
-                                      : '',
-                                  style: TextStyle(color: redColor, fontSize: 14),
-                                ),
-                              ],
+                          SizedBox(width: 60),
+                          Icon(Icons.info_outline, color: Colors.grey),
+                          SizedBox(width: 8, height: 40),
+                          Expanded(
+                            child: Text(
+                              '${parsedDataList.isNotEmpty ? (parsedDataList[0] == 5 ? 'Başlat Komutu Bekleniyor' : (parsedDataList[0] == 9 ? 'Şarja Hazır' : (parsedDataList[0] == 6 ? 'Araç Şarj Oluyor' : 'Soket Bağlı Değil'))) : 'Veri Yok'}',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
                             ),
                           ),
-                          // Card içeriği burada
                         ],
                       ),
-                    ),
+                      SizedBox(height: 8), // İki metin arasında boşluk ekleyin
+                      Text(
+                        parsedDataList.isNotEmpty && parsedDataList[0] == 12 && parsedDataList[0] != 6 && parsedDataList[0] != 9 && parsedDataList[0] != 5
+                            ? 'Lütfen Soketi Bağlayınız'
+                            : '',
+                        style: TextStyle(color: redColor, fontSize: 14),
+                      ),
+                    ],
                   ),
                 ),
-              ],
+              ),
             ),
 
             SizedBox(height: 100,),
-
-
-
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -407,3 +384,5 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+ */
